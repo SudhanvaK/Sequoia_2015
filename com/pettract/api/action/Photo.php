@@ -68,7 +68,7 @@ class Photo extends Common
         //$connectionList = array();
     }
 
-    public function postPhotoInfo($photoData)
+    public function postPhotoInfo(PhotoDO $photoData)
     {
         $db = new PettractDB();
         $dbh = $db->connect();
