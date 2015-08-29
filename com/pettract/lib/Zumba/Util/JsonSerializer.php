@@ -58,7 +58,7 @@ class JsonSerializer {
 	 */
 	public function serialize($value) {
 		$this->reset();
-		$encoded = json_encode($this->serializeData($value), $this->calculateEncodeOptions());
+		$encoded = json_encode($this->serializeData($value), 128);//$this->calculateEncodeOptions()
 		return $this->processEncodedValue($encoded);
 	}
 

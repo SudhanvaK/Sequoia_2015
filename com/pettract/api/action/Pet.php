@@ -68,7 +68,7 @@ class Pet extends Common
 
             //->setOwnerInfo((new Owner())->getOwnerInfo($row['pet_owner_id']))
 
-            $o = new OwnerDO();
+            $o = new Owner();
             $ownerInfo = $o->getOwnerInfo($row['pet_owner_id']);
             $pet->setOwnerInfo($ownerInfo);
 
@@ -111,7 +111,7 @@ class Pet extends Common
                 ->setLastVerifiedBy($row['pet_last_verified_by'])
                 ->setCreatedTime($row['created_time']);
 
-            $o = new OwnerDO();
+            $o = new Owner();
             $ownerInfo = $o->getOwnerInfo($row['pet_owner_id']);
             $pet->setOwnerInfo($ownerInfo);
 
@@ -136,6 +136,6 @@ class Pet extends Common
         $query = "INSERT INTO tbl_pets(pet_category, pet_breed, pet_sex, pet_colour, pet_age, pet_location, pet_owner_id, pet_health_checked, pet_name)
             VALUES ('".$pet->getCategory()."','".$pet->getBreed()."','".$pet->getSex()."','".$pet->getColour()."','".$pet->getAge()."','".$pet->getLocation()."','".$pet->getOwnerInfo()->getOwnerId()."','".$pet->getHealthChecked()."','".$pet->getName()."')";
 
-        //$dbh->exec($query);
+        $dbh->exec($query);
     }
 }

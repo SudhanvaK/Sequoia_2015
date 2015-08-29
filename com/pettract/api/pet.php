@@ -33,7 +33,10 @@ function getAllPets()
     $p = new Pets();
     $p->pets = $pets;
 
-    var_dump($pets);
+    //var_dump($pets);
+    $serializer = new Zumba\Util\JsonSerializer();
+    $json = $serializer->serialize($p);
+    echo $json;
 }
 
 function getPet($petId)
@@ -51,7 +54,6 @@ function getPet($petId)
 //$app->post('/addpet',"addPetInfo");
 
 $app->post('/addpet',function() use ($app)
-//function addPetInfo()
 {
     $request_body = $app->request->getBody();
     $json = json_decode($request_body, true);
@@ -82,6 +84,6 @@ $app->post('/addpet',function() use ($app)
     //->setOwnerInfo(->setOwnerId($ownerId))
 
     $p = new Pet();
-    var_dump($pet);
+
     $p->addPetInfo($pet);
 });
