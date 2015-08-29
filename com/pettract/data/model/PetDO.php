@@ -9,7 +9,7 @@
 //namespace data\card_data;
 
 
-class Pet
+class PetDO
 {
     private $id;
     private $category;
@@ -86,13 +86,15 @@ class Pet
 
     public function setLastVerifiedBy($lastVerifiedBy)
     {
-        $this->$lastVerifiedBy=$lastVerifiedBy;
+
+        $this->lastVerifiedBy=$lastVerifiedBy;
+
         return $this;
     }
 
     public function setCreatedTime($createdTime)
     {
-        $this->$createdTime=$createdTime;
+        $this->createdTime=$createdTime;
         return $this;
     }
 

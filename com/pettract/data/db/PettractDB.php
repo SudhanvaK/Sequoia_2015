@@ -20,9 +20,7 @@ class PettractDB
 
         try
         {
-            echo "Connecting to DB";
             $dbh = new PDO("mysql:host=".MYSQL_HOST.";dbname=".DATABASE, MYSQL_USERNAME, MYSQL_PASSWORD);
-            echo "Connected";
 
             /* set the PDO error mode to exception */
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
