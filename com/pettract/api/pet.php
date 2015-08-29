@@ -9,7 +9,7 @@ include_once ROOT_PATH."/com/pettract/api/action/Pet.php";
 include_once ROOT_PATH."/com/pettract/lib/Zumba/Util/JsonSerializer.php";
 $app->get('/pet/:petId', 'getPet');
 $app->get('/pet_count', 'getPetCount');
-
+$app->get('/getpets', 'getAllPets');
 
 function getPetCount()
 {
@@ -18,6 +18,22 @@ function getPetCount()
     $p = new Pet();
 
     echo "Count=".$p->getPetCount();
+}
+
+function getAllPets()
+{
+    class Pets
+    {
+        public $pets = array();
+    }
+
+    $pet = new Pet();
+    $pets = $pet->getPets();
+
+    $p = new Pets();
+    $p->pets = $pets;
+
+    var_dump($pets);
 }
 
 function getPet($petId)
@@ -57,9 +73,13 @@ $app->post('/addpet',function() use ($app)
         ->setColour($colour)
         ->setAge($age)
         ->setLocation($location)
-        ->setOwnerInfo((new OwnerDO())->setOwnerId($ownerId))
         ->setHealthChecked($healthChecked)
         ->setName($name);
+
+    $o = new OwnerDO();
+    $o->setOwnerId($ownerId);
+    $pet->setOwnerInfo($o);
+    //->setOwnerInfo(->setOwnerId($ownerId))
 
     $p = new Pet();
     var_dump($pet);

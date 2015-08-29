@@ -61,20 +61,71 @@ class Pet extends Common
                 ->setColour($row['pet_colour'])
                 ->setAge($row['pet_age'])
                 ->setLocation($row['pet_location'])
-                ->setOwnerInfo((new Owner())->getOwnerInfo($row['pet_owner_id']))
                 ->setHealthChecked($row['pet_health_checked'])
                 ->setName($row['pet_name'])
                 ->setLastVerifiedBy($row['pet_last_verified_by'])
                 ->setCreatedTime($row['created_time']);
+
+            //->setOwnerInfo((new Owner())->getOwnerInfo($row['pet_owner_id']))
+
+            $o = new OwnerDO();
+            $ownerInfo = $o->getOwnerInfo($row['pet_owner_id']);
+            $pet->setOwnerInfo($ownerInfo);
 
             $petList[] = $pet;
 
         }
 
         if(count($petList)==0)
-            return (new GenericMessage())->setMessage("No");
+        {
+            $g = new GenericMessage();
+            return $g->setMessage("No");
+        }
         else
             return $petList[0];
+    }
+
+    public function getPets()
+    {
+        $db = new PettractDB();
+        $dbh = $db->connect();
+
+        $data = $dbh->query( "SELECT * FROM tbl_pets" );
+
+        //$data = $dbh->query( 'SELECT * FROM user WHERE id in (SELECT c.userB FROM connection c WHERE c.userA='.$this->currentUser->getId().')' );
+
+        $petList = array();
+
+        foreach($data as $row)
+        {
+            $pet = new PetDO();
+            $pet->setId($row['pet_id'])
+                ->setCategory($row['pet_category'])
+                ->setBreed($row['pet_breed'])
+                ->setSex($row['pet_sex'])
+                ->setColour($row['pet_colour'])
+                ->setAge($row['pet_age'])
+                ->setLocation($row['pet_location'])
+                ->setHealthChecked($row['pet_health_checked'])
+                ->setName($row['pet_name'])
+                ->setLastVerifiedBy($row['pet_last_verified_by'])
+                ->setCreatedTime($row['created_time']);
+
+            $o = new OwnerDO();
+            $ownerInfo = $o->getOwnerInfo($row['pet_owner_id']);
+            $pet->setOwnerInfo($ownerInfo);
+
+            $petList[] = $pet;
+
+        }
+
+        if(count($petList)==0)
+        {
+            $g=new GenericMessage();
+            return $g->setMessage("No");
+        }
+        else
+            return $petList;
     }
 
     public function addPetInfo(PetDO $pet)
