@@ -7,6 +7,7 @@
  */
 include_once ROOT_PATH."/com/pettract/api/action/Common.php";
 include_once ROOT_PATH."/com/pettract/data/model/PetDO.php";
+include_once ROOT_PATH."/com/pettract/api/action/GenericMessage.php";
 
 class Pet extends Common
 {
@@ -70,7 +71,7 @@ class Pet extends Common
         }
 
         if(count($petList)==0)
-            return null;
+            return (new GenericMessage())->setMessage("No");
         else
             return $petList[0];
     }
