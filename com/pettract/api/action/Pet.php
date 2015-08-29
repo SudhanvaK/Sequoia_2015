@@ -7,6 +7,7 @@
  */
 include_once ROOT_PATH."/com/pettract/api/action/Common.php";
 include_once ROOT_PATH."/com/pettract/data/model/PetDO.php";
+include_once ROOT_PATH."/com/pettract/api/action/Owner.php";
 include_once ROOT_PATH."/com/pettract/api/action/GenericMessage.php";
 
 class Pet extends Common
@@ -60,12 +61,13 @@ class Pet extends Common
                 ->setColour($row['pet_colour'])
                 ->setAge($row['pet_age'])
                 ->setLocation($row['pet_location'])
-                ->setOwnerId($row['pet_owner_id'])
+                ->setOwnerInfo((new Owner())->getOwnerInfo($row['pet_owner_id']))
                 ->setHealthChecked($row['pet_health_checked'])
                 ->setName($row['pet_name'])
                 ->setLastVerifiedBy($row['pet_last_verified_by'])
                 ->setCreatedTime($row['created_time']);
 
+            //var_dump($ownerInfo);
             $petList[] = $pet;
 
         }

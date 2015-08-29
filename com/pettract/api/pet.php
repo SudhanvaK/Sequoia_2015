@@ -27,5 +27,6 @@ function getPet($petId)
 
     $serializer = new Zumba\Util\JsonSerializer();
     $json = $serializer->serialize($pet);
+    echo $json;
     return $json;
 }

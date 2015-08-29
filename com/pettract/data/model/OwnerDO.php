@@ -11,65 +11,65 @@
 
 class OwnerDO
 {
-    private $intOwnerId;
-    private $strOwnerName;
-    private $strOwnerPhone;
-    private $strOwnerEmail;
-    private $CreatedTime;
+    private $ownerId;
+    private $ownerName;
+    private $ownerPhone;
+    private $ownerEmail;
+    private $createdTime;
 
     
-    public function setOwnerId($intOwnerId)
+    public function setOwnerId($ownerId)
     {
-        $this->intOwnerId = $intOwnerId;
+        $this->ownerId = $ownerId;
         return $this;
     }
 
     public function getOwnerId()
     {
-        return $this->intOwnerId;
+        return $this->ownerId;
     }
 
-    public function setOwnerName($strOwnerName)
+    public function setOwnerName($ownerName)
     {
-        $this->strOwnerName = $strOwnerName;
+        $this->ownerName = $ownerName;
         return $this;
     }
 
     public function getOwnerName()
     {
-        return $this->strOwnerName;
+        return $this->ownerName;
     }
 
-    public function setOwnerPhone($strOwnerPhone)
+    public function setOwnerPhone($ownerPhone)
     {
-        $this->strOwnerPhone = $strOwnerPhone;
+        $this->ownerPhone = $ownerPhone;
         return $this;
     }
 
     public function getOwnerPhone()
     {
-        return $this->strOwnerPhone;
+        return $this->ownerPhone;
     }
 
-    public function setOwnerEmail($strOwnerEmail)
+    public function setOwnerEmail($ownerEmail)
     {
-        $this->strOwnerEmail = $strOwnerEmail;
+        $this->ownerEmail = $ownerEmail;
         return $this;
     }
 
     public function getOwnerEmail()
     {
-        return $this->strOwnerEmail;
+        return $this->ownerEmail;
     }
 
-    public function setCreatedTime($CreatedTime)
+    public function setCreatedTime($createdTime)
     {
-        $this->CreatedTime = $CreatedTime;
+        $this->createdTime = $createdTime;
         return $this;
     }
 
     public function getCreatedTime()
     {
-        return $this->CreatedTime;
+        return $this->createdTime;
     }
 } 

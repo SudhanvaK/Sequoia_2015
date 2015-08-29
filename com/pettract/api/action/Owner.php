@@ -32,10 +32,13 @@ class Owner extends Common
 
         $ownerData = $dbh->query( "SELECT * FROM tbl_owner where owner_id = $id" );
 
-
         foreach($ownerData as $row)
         {
-            $ownerInfo->setOwnerId($row['owner_id'])->setOwnerName($row['owner_name'])->setOwnerPhone($row['owner_phone'])->setOwnerEmail($row['owner_email']);
+            $ownerInfo->setOwnerId($row['owner_id'])
+                ->setOwnerName($row['owner_name'])
+                ->setOwnerPhone($row['owner_phone'])
+                ->setOwnerEmail($row['owner_email'])
+                ->setCreatedTime($row['created_time']);
         }
 
         return $ownerInfo;

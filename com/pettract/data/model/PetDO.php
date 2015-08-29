@@ -18,7 +18,7 @@ class PetDO
     private $colour;
     private $age;
     private $location;
-    private $ownerId;
+    private $ownerInfo;
     private $healthChecked;
     private $name;
     private $lastVerifiedBy; //TODO: Vet Data Binding
@@ -66,9 +66,9 @@ class PetDO
         return $this;
     }
 
-    public function setOwnerId($ownerId)
+    public function setOwnerInfo($ownerInfo)
     {
-        $this->ownerId=$ownerId;
+        $this->ownerInfo=$ownerInfo;
         return $this;
     }
 
@@ -86,7 +86,6 @@ class PetDO
 
     public function setLastVerifiedBy($lastVerifiedBy)
     {
-
         $this->lastVerifiedBy=$lastVerifiedBy;
 
         return $this;
@@ -138,9 +137,9 @@ class PetDO
         return $this->location;
     }
 
-    public function getOwnerId()
+    public function getOwnerInfo()
     {
-        return $this->ownerIdd;
+        return $this->ownerInfo;
     }
 
     public function getHealthChecked()
