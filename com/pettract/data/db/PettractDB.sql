@@ -40,3 +40,9 @@ CREATE TABLE tbl_vets(
  created_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (vet_id)
 ) ;
+
+
+ALTER TABLE tbl_pets DROP COLUMN pet_location;
+
+ALTER TABLE tbl_pets ADD  pet_latitude DOUBLE NOT NULL;
+ALTER TABLE tbl_pets ADD  pet_longitude DOUBLE NOT NULL;

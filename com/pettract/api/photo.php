@@ -9,6 +9,7 @@ include_once ROOT_PATH."/com/pettract/api/action/Photo.php";
 
 $app->get("/photo/:id", 'getPhoto');
 $app->get("/photos/:id", 'getPhotos');
+$app->post("/createphoto/:photodata", 'postPhoto');
 
 
 function getPhoto($id)
@@ -39,3 +40,14 @@ function getPhotos($id)
     var_dump($json);
     return $json;
 };
+
+
+function postPhoto($photodata){
+    $photo = new Photo();
+
+    $result = $photo->postPhotoInfo($photodata);
+
+    $serializer = new Zumba\Util\JsonSerializer();
+    $json = $serializer->serialize($result);
+    return $json;
+}

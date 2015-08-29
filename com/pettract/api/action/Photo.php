@@ -67,4 +67,20 @@ class Photo extends Common
 
         //$connectionList = array();
     }
+
+    public function postPhotoInfo($photoData)
+    {
+        $db = new PettractDB();
+        $dbh = $db->connect();
+
+
+        $photoPetId = $photoData->getPetId();
+        $photoUrl = $photoData->getPhotoUrl();
+
+        $dbh->query( "INSERT INTO tbl_photos(pet_id,photo_url) VALUES ('".$photoPetId."','".$photoUrl."')");
+
+        return (new GenericMessage())->setMessage("Success");
+
+    }
+
 } 

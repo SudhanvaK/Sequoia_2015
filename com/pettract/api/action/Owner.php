@@ -46,4 +46,21 @@ class Owner extends Common
         //$connectionList = array();
 
     }
+
+
+    public function postOwnerInfo($ownerData)
+    {
+        $db = new PettractDB();
+        $dbh = $db->connect();
+
+
+        $ownerName = $ownerData->getOwnerName();
+        $ownerPhone = $ownerData->getOwnerPhone();
+        $ownerEmail = $ownerData->getOwnerEmail();
+
+        $dbh->query( "INSERT INTO tbl_owner(owner_name,owner_phone,owner_email) VALUES ('".$ownerName."','".$ownerPhone."','".$ownerEmail."')");
+
+        return (new GenericMessage())->setMessage("Success");
+
+    }
 } 

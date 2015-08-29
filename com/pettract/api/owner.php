@@ -8,6 +8,7 @@
 include_once ROOT_PATH."/com/pettract/api/action/Owner.php";
 
 $app->get("/ownerinfo/:id", 'getOwner');
+$app->post("/createowner/:ownerdata", 'postOwner');
 
 
 function getOwner($id)
@@ -20,5 +21,16 @@ function getOwner($id)
 
     $serializer = new Zumba\Util\JsonSerializer();
     $json = $serializer->serialize($ownerData);
+    var_dump($json);
     return $json;
 };
+
+function postOwner($ownerdata){
+    $owner = new Owner();
+
+    $result = $owner->postOwnerInfo($ownerdata);
+
+    $serializer = new Zumba\Util\JsonSerializer();
+    $json = $serializer->serialize($result);
+    return $json;
+}
