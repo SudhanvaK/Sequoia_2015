@@ -30,3 +30,38 @@ function getPet($petId)
     echo $json;
     return $json;
 }
+
+//function addPetInfo()
+//$app->post('/addpet',"addPetInfo");
+
+$app->post('/addpet',function() use ($app)
+//function addPetInfo()
+{
+    $request_body = $app->request->getBody();
+    $json = json_decode($request_body, true);
+
+    $category = $json['pet_info']['category'];
+    $breed =  $json['pet_info']['breed'];
+    $sex =  $json['pet_info']['sex'];
+    $colour =  $json['pet_info']['colour'];
+    $age =  $json['pet_info']['age'];
+    $location =  $json['pet_info']['location'];
+    $ownerId =  $json['pet_info']['owner_id'];
+    $healthChecked =  $json['pet_info']['health_checked'];
+    $name =  $json['pet_info']['name'];
+
+    $pet = new PetDO();
+    $pet->setCategory($category)
+        ->setBreed($breed)
+        ->setSex($sex)
+        ->setColour($colour)
+        ->setAge($age)
+        ->setLocation($location)
+        ->setOwnerInfo((new OwnerDO())->setOwnerId($ownerId))
+        ->setHealthChecked($healthChecked)
+        ->setName($name);
+
+    $p = new Pet();
+    var_dump($pet);
+    $p->addPetInfo($pet);
+});
