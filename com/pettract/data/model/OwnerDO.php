@@ -9,7 +9,7 @@
 //namespace data\card_data;
 
 
-class Owner
+class OwnerDO
 {
     private $intOwnerId;
     private $strOwnerName;

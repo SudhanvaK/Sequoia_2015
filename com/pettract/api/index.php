@@ -10,6 +10,8 @@ require $rootPath."/com/pettract/lib/Slim/Slim.php";
 //create new Slim instance
 $app = new \Slim\Slim();
 include_once "$rootPath/com/pettract/api/pet.php";
+include_once "$rootPath/com/pettract/api/owner.php";
+include_once "$rootPath/com/pettract/api/photo.php";
 
 $app->post('/testpost', 'testpost');
 //************************************************************

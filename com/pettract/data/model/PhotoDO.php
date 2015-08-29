@@ -9,7 +9,7 @@
 //namespace data\card_data;
 
 
-class Photo
+class PhotoDO
 {
     private $intPhotoId;
     private $intPetId;
