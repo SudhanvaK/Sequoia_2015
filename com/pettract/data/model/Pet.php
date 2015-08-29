@@ -12,92 +12,87 @@
 class Pet
 {
     private $id;
-    private $line1;
-    private $line2;
-    private $city;
-    private $state;
-    private $country;
-    private $pin;
-    private $type;
+    private $category;
+    private $breed;
+    private $sex;
+    private $colour;
+    private $age;
+    private $location;
+    private $ownerId;
+    private $healthChecked;
+    private $name;
+    private $lastVerifiedBy; //TODO: Vet Data Binding
+    private $createdTime;
 
-    
     public function setId($id)
     {
         $this->id = $id;
+        return $this;
     }
 
-    public function getId()
+    public function setCategory($category)
     {
-        return $this->id;
+        $this->category=$category;
+        return $this;
     }
 
-    public function setLine1($line1)
+    public function setBreed($breed)
     {
-        $this->line1 = $line1;
+        $this->breed=$breed;
+        return $this;
     }
 
-    public function getLine1()
+    public function setSex($sex)
     {
-        return $this->line1;
+        $this->sex=$sex;
+        return $this;
     }
 
-    public function setLine2($line2)
+    public function setColour($colour)
     {
-        $this->line2 = $line2;
+        $this->colour=$colour;
+        return $this;
     }
 
-    public function getLine2()
+    public function setAge($age)
     {
-        return $this->line2;
+        $this->age=$age;
+        return $this;
     }
 
-    public function setCity($city)
+    public function setLocation($location)
     {
-        $this->city = $city;
+        $this->location=$location;
+        return $this;
     }
 
-    public function getCity()
+    public function setOwnerId($ownerId)
     {
-        return $this->city;
+        $this->ownerId=$ownerId;
+        return $this;
     }
 
-    public function setState($state)
+    public function setHealthChecked($healthChecked)
     {
-        $this->state = $state;
+        $this->healthChecked=$healthChecked;
+        return $this;
     }
 
-    public function getState()
+    public function setName($name)
     {
-        return $this->state;
+        $this->name=$name;
+        return $this;
     }
 
-    public function setCountry($country)
+    public function setLastVerifiedBy($lastVerifiedBy)
     {
-        $this->country = $country;
+        $this->$lastVerifiedBy=$lastVerifiedBy;
+        return $this;
     }
 
-    public function getCountry()
+    public function setCreatedTime($createdTime)
     {
-        return $this->country;
-    }
-
-    public function setPin($pin)
-    {
-        $this->pin = $pin;
-    }
-
-    public function getPin()
-    {
-        return $this->pin;
-    }
-
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    public function getType()
-    {
-        return $this->type;
+        $this->$createdTime=$createdTime;
+        return $this;
     }
 } 
