@@ -95,4 +95,72 @@ class Pet
         $this->$createdTime=$createdTime;
         return $this;
     }
+
+
+
+    ////////////////////////////////////////
+
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    public function getBreed()
+    {
+        return $this->breed;
+    }
+
+    public function getSex()
+    {
+        return $this->sex;
+    }
+
+    public function getColour()
+    {
+        return $this->colour;
+    }
+
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    public function getOwnerId()
+    {
+        return $this->ownerIdd;
+    }
+
+    public function getHealthChecked()
+    {
+        return $this->healthChecked;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getLastVerifiedBy()
+    {
+        return $this->lastVerifiedBy;
+    }
+
+    public function getCreatedTime()
+    {
+        return $this->createdTime;
+    }
+
+
+
 } 

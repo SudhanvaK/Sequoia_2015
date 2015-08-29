@@ -14,6 +14,8 @@ class Owner
     private $intOwnerId;
     private $strOwnerName;
     private $strOwnerPhone;
+    private $strOwnerEmail;
+    private $CreatedTime;
 
     
     public function setOwnerId($intOwnerId)
@@ -47,5 +49,27 @@ class Owner
     public function getOwnerPhone()
     {
         return $this->strOwnerPhone;
+    }
+
+    public function setOwnerEmail($strOwnerEmail)
+    {
+        $this->strOwnerEmail = $strOwnerEmail;
+        return $this;
+    }
+
+    public function getOwnerEmail()
+    {
+        return $this->strOwnerEmail;
+    }
+
+    public function setCreatedTime($CreatedTime)
+    {
+        $this->CreatedTime = $CreatedTime;
+        return $this;
+    }
+
+    public function getCreatedTime()
+    {
+        return $this->CreatedTime;
     }
 } 

@@ -17,7 +17,8 @@ CREATE TABLE tbl_pets (
 CREATE TABLE tbl_owner (
   owner_id int unsigned NOT NULL AUTO_INCREMENT,
   owner_name VARCHAR(25) NOT NULL,
-  owner_phone VARCHAR(25) NOT NULL,
+  owner_phone VARCHAR(25),
+  owner_email VARCHAR(25) NOT NULL,
   created_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (owner_id)
 ) ;
