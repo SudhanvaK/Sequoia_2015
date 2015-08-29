@@ -79,8 +79,9 @@ class Photo extends Common
 
         $dbh->query( "INSERT INTO tbl_photos(pet_id,photo_url) VALUES ('".$photoPetId."','".$photoUrl."')");
 
-        return (new GenericMessage())->setMessage("Success");
-
+        $g = new GenericMessage();
+        $g->setMessage("Success");
+        return $g;
     }
 
 } 

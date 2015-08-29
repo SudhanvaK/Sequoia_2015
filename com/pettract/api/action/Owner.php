@@ -60,7 +60,8 @@ class Owner extends Common
 
         $dbh->query( "INSERT INTO tbl_owner(owner_name,owner_phone,owner_email) VALUES ('".$ownerName."','".$ownerPhone."','".$ownerEmail."')");
 
-        return (new GenericMessage())->setMessage("Success");
-
+        $g = new GenericMessage();
+        $g->setMessage("Success");
+        return $g;
     }
 } 

@@ -135,7 +135,7 @@ class Pet extends Common
 
         $query = "INSERT INTO tbl_pets(pet_category, pet_breed, pet_sex, pet_colour, pet_age, pet_location, pet_owner_id, pet_health_checked, pet_name)
             VALUES ('".$pet->getCategory()."','".$pet->getBreed()."','".$pet->getSex()."','".$pet->getColour()."','".$pet->getAge()."','".$pet->getLocation()."','".$pet->getOwnerInfo()->getOwnerId()."','".$pet->getHealthChecked()."','".$pet->getName()."')";
-echo $query;
-        $dbh->exec($query);
+
+        //$dbh->exec($query);
     }
 }
