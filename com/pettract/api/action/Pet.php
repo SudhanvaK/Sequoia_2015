@@ -67,7 +67,6 @@ class Pet extends Common
                 ->setLastVerifiedBy($row['pet_last_verified_by'])
                 ->setCreatedTime($row['created_time']);
 
-            //var_dump($ownerInfo);
             $petList[] = $pet;
 
         }
@@ -76,5 +75,10 @@ class Pet extends Common
             return (new GenericMessage())->setMessage("No");
         else
             return $petList[0];
+    }
+
+    public function addPetInfo($pet)
+    {
+
     }
 } 
