@@ -1,18 +1,16 @@
 <?php
-//require "Slim/Slim.php";
-//include_once $_SERVER['DOCUMENT_ROOT']."/com/pettract/lib/Slim/Slim.php";
-$projectLocation = '/Users/vishwanath.s/PhpstormProjects/pettract-api';
+$rootPath = dirname(__FILE__)."/../../..";
+define("ROOT_PATH",$rootPath);
+set_include_path($rootPath);
 
-set_include_path($projectLocation);
-require "com/pettract/lib/Slim/Slim.php";
-//require "data/test/Test.php";
+require $rootPath."/com/pettract/lib/Slim/Slim.php";
 
 \Slim\Slim::registerAutoloader();
 
-// create new Slim instance
+//create new Slim instance
 $app = new \Slim\Slim();
+include_once "$rootPath/com/pettract/api/pet.php";
 
-$app->get('/get_user/:id', 'getUser');
 $app->post('/testpost', 'testpost');
 //************************************************************
 
