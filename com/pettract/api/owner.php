@@ -8,7 +8,6 @@
 include_once ROOT_PATH."/com/pettract/api/action/Owner.php";
 
 $app->get("/ownerinfo/:id", 'getOwner');
-$app->post("/createowner/:ownerdata", 'postOwner');
 
 
 function getOwner($id)
@@ -25,12 +24,33 @@ function getOwner($id)
     return $json;
 };
 
-function postOwner($ownerdata){
+//function postOwner($ownerdata){
+//    $owner = new Owner();
+//
+//    $result = $owner->postOwnerInfo($ownerdata);
+//
+//    $serializer = new Zumba\Util\JsonSerializer();
+//    $json = $serializer->serialize($result);
+//    return $json;
+//}
+
+
+$app->post('/addowner',function() use ($app)
+//function addPetInfo()
+{
+    $request_body = $app->request->getBody();
+    $json = json_decode($request_body, true);
+
+    $ownerName = $json['owner_info']['ownerName'];
+    $ownerPhone =  $json['owner_info']['ownerPhone'];
+    $ownerEmail =  $json['owner_info']['ownerEmail'];
+
+    $ownerdo = new OwnerDO();
+    $ownerdo->setOwnerName($ownerName)
+        ->setOwnerPhone($ownerPhone)
+        ->setOwnerEmail($ownerEmail);
+
     $owner = new Owner();
-
-    $result = $owner->postOwnerInfo($ownerdata);
-
-    $serializer = new Zumba\Util\JsonSerializer();
-    $json = $serializer->serialize($result);
-    return $json;
-}
+    var_dump($ownerdo);
+    $owner->postOwnerInfo($ownerdo);
+});

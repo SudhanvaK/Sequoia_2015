@@ -48,7 +48,7 @@ class Owner extends Common
     }
 
 
-    public function postOwnerInfo($ownerData)
+    public function postOwnerInfo(OwnerDO $ownerData)
     {
         $db = new PettractDB();
         $dbh = $db->connect();
