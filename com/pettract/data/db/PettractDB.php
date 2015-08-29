@@ -6,7 +6,7 @@
  * Time: 1:49 AM
  * To change this template use File | Settings | File Templates.
  */
-class MeetDB
+class PettractDB
 {
     private $dbh;
 
@@ -15,11 +15,14 @@ class MeetDB
 
     function connect()
     {
-        include_once dirname(__FILE__) . '/../../config/dbconfig.php';
+        //include_once dirname(__FILE__) . '/../../config/dbconfig.php';
+        include_once ROOT_PATH."/com/pettract/config/Constants.php";
+
         try
         {
+            echo "Connecting to DB";
             $dbh = new PDO("mysql:host=".MYSQL_HOST.";dbname=".DATABASE, MYSQL_USERNAME, MYSQL_PASSWORD);
-            //success response?
+            echo "Connected";
 
             /* set the PDO error mode to exception */
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -28,7 +31,7 @@ class MeetDB
         }
         catch(PDOException $e)
         {
-            echo $e->getMessage();
+            echo "Database Connection Error: ".$e->getMessage()."\n\n";
         }
     }
 }
