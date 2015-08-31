@@ -12,6 +12,8 @@ $app = new \Slim\Slim();
 include_once "$rootPath/com/pettract/api/pet.php";
 include_once "$rootPath/com/pettract/api/owner.php";
 include_once "$rootPath/com/pettract/api/photo.php";
+include_once "$rootPath/com/pettract/api/pairs.php";
+include_once "$rootPath/com/pettract/api/message.php";
 
 $app->post('/testpost', 'testpost');
 //************************************************************

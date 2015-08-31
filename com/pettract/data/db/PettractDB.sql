@@ -46,3 +46,25 @@ ALTER TABLE tbl_pets DROP COLUMN pet_location;
 
 ALTER TABLE tbl_pets ADD  pet_latitude DOUBLE NOT NULL;
 ALTER TABLE tbl_pets ADD  pet_longitude DOUBLE NOT NULL;
+
+
+CREATE TABLE tbl_pairs(
+ pair_id int unsigned NOT NULL AUTO_INCREMENT,
+ source_id int NOT NULL,
+ dest_id int NOT NULL,
+ pair_final_yn CHAR(1) NOT NULL DEFAULT 'N',
+ created_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (pair_id)
+) ;
+
+-- drop table tbl_msgs; 
+CREATE TABLE tbl_msgs(
+ msg_id int unsigned NOT NULL AUTO_INCREMENT,
+ owner1_id int NOT NULL,
+ pet1_id int NOT NULL,
+ owner2_id int NOT NULL,
+ pet2_id int NOT NULL,
+ owner_message VARCHAR(100) NOT NULL,
+ created_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (msg_id)
+) ;
